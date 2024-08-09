@@ -12,6 +12,11 @@ class PetWalkSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\PetWalk::create([
+            'pet_id' => 1,
+            'location' => "El parque",
+            'walk_date' => '2023-06-15',
+            
+        ]);
     }
 }

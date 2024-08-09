@@ -12,6 +12,11 @@ class PetSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Pet::create(
+            ['name' => 'Buddy',
+            'description' => 'Macho raza pequeña',
+            'type' => 'Dog',
+            'birth_date' => '2018-05-15']
+        );
     }
 }

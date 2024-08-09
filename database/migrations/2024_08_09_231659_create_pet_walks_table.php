@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('pet_walks', function (Blueprint $table) {
             $table->id();
+            $table->string("location");
+            $table->date("walk_date");
+            $table->unsignedBigInteger("pet_id");
+            $table->foreign("pet_id")->references("id")->on("pets");
             $table->timestamps();
         });
     }
