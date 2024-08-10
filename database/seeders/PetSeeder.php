@@ -16,7 +16,9 @@ class PetSeeder extends Seeder
             ['name' => 'Buddy',
             'description' => 'Macho raza pequeña',
             'type' => 'Dog',
-            'birth_date' => '2018-05-15']
+            'birth_date' => '2024-08-08']
         );
+        // call to pet factory
+        \App\Models\Pet::factory(10)->create();
     }
 }

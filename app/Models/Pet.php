@@ -4,9 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Pet extends Model
 {
     use HasFactory;
-    protected $fillable = ["name", "description", "type", "birth_date"]; 
+    protected $fillable = ["name", "description", "type", "birth_date"];
+
+    public function getDaysSinceBirthAttribute()
+    {
+        $birth_date =  Carbon::parse($this->attributes['birth_date']);
+        return $birth_date->diffInDays(Carbon::now());
+    }
 }
