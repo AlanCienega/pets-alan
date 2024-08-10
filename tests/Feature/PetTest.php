@@ -22,4 +22,14 @@ class PetTest extends TestCase
 
         $this->assertDatabaseHas('pets', $data);
     }
+
+    /** @test */
+    public function it_calculate_days_since_birth_date()
+    {
+        $birth_date = '2024-02-01';
+        $pet = Pet::factory()->create(['birth_date' => $birth_date]);
+
+        $expected_days = now()->diffInDays(now()->parse($birth_date));
+        $this->assertEquals(-round($expected_days), round($pet->days_since_birth));
+    }
 }
