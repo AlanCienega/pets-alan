@@ -14,6 +14,6 @@ class Pet extends Model
     public function getDaysSinceBirthAttribute()
     {
         $birth_date =  Carbon::parse($this->attributes['birth_date']);
-        return $birth_date->diffInDays(Carbon::now());
+        return round($birth_date->diffInDays(Carbon::now()));
     }
 }
