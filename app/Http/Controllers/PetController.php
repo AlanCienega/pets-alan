@@ -29,7 +29,16 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+            'birth_date' => 'required',
+        ]);
+
+        Pet::create($request->all());
+
+        return redirect()->route('pets.index')->with('success', 'Pet created successfully.');
     }
 
     /**

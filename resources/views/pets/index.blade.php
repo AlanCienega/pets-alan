@@ -6,7 +6,22 @@
   <title>Mascotas</title>
 </head>
 <body>
-  <!-- tabla para mostrar name, description, type-->
+  <form action="/pets" method="POST">
+    @csrf
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="description">Descripción:</label>
+    <input type="text" id="description" name="description"><br><br>
+    <label for="type">Tipo:</label>
+    <select name="type" id="type">
+      <option value="dog">Cat</option>
+      <option value="cat">Dog</option>
+      <option value="turtle">Turtle</option>
+    </select>
+    <label for="birth_date">Fecha de nacimiento:</label>
+    <input type="date" id="birth_date" name="birth_date"><br><br>
+    <input type="submit" value="Submit">
+  </form>
    <table>
       <tr>
          <th>Name</th>
