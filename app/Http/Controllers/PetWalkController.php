@@ -12,7 +12,8 @@ class PetWalkController extends Controller
      */
     public function index()
     {
-        //
+        $petWalks = PetWalk::with('pet')->orderBy('pet_id')->get();
+        return view('pets.walks', compact('petWalks'));
     }
 
     /**

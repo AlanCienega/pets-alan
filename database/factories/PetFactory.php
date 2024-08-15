@@ -17,7 +17,7 @@ class PetFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstName(),
             'type' => fake()->randomElement(['cat', 'dog', 'turtle']),
             'description' => fake()->word(),
             // birthdat before today

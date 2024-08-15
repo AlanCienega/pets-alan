@@ -19,7 +19,7 @@ class PetWalkFactory extends Factory
     {
         return [
             'location' => fake()->streetSuffix(),
-            'walk_date' => fake()->date(),
+            'walk_date' => fake()->dateTimeBetween('-1 year', 'now'),
             'pet_id' => Pet::inRandomOrder()->first()->id
         ];
     }

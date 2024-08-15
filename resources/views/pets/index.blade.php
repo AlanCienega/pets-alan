@@ -18,6 +18,11 @@
 </head>
 
 <body>
+  <div style="padding: 3px;">
+    <a href="/pet-walks" style="background-color: blueviolet; color: white; padding: 2px; border-radius: 10%;">
+      ver paseos
+    </a>
+  </div>
   <form action="/pets" method="POST">
     @csrf
     <label for="name">Nombre:</label>
@@ -34,6 +39,7 @@
     <input type="date" id="birth_date" name="birth_date"><br><br>
     <input type="submit" value="Submit">
   </form>
+
   <table>
     <tr>
       <th>Name</th>
