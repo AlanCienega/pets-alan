@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mascotas</title>
+  <style>
+    td {
+      border: 1px solid black;
+    }
+  </style>
 </head>
+
 <body>
   <form action="/pets" method="POST">
     @csrf
@@ -22,23 +29,31 @@
     <input type="date" id="birth_date" name="birth_date"><br><br>
     <input type="submit" value="Submit">
   </form>
-   <table>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Numer of days old</th>
+      <th>Pet walks</th>
+    </tr>
+    <tbody>
+      @foreach ($pets as $pet)
       <tr>
-         <th>Name</th>
-         <th>Description</th>
-         <th>Type</th>
-         <th>Numer of days old</th>
+        <td>{{ $pet->name }}</td>
+        <td>{{ $pet->description }}</td>
+        <td>{{ $pet->type }}</td>
+        <td>{{ $pet->days_since_birth }}</td>
+        <td colspan="{{count($pet->walks)}}">
+          @foreach ($pet->walks as $walks)
+          {{ $walks->location }}
+          <br>
+          @endforeach
+        </td>
       </tr>
-      <tbody>
-        @foreach ($pets as $pet)
-            <tr>
-                <td>{{ $pet->name }}</td>
-                <td>{{ $pet->description }}</td>
-                <td>{{ $pet->type }}</td>
-                <td>{{ $pet->days_since_birth }}</td>
-            </tr>
-        @endforeach
-      </tbody>
-   </table>
+      @endforeach
+    </tbody>
+  </table>
 </body>
+
 </html>

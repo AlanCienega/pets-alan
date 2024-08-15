@@ -13,7 +13,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        $pets = Pet::all();
+        $pets = Pet::with('walks:pet_id,location')->get();
         return view('pets.index', compact('pets'));
     }
 

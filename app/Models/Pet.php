@@ -16,4 +16,9 @@ class Pet extends Model
         $birth_date =  Carbon::parse($this->attributes['birth_date']);
         return round($birth_date->diffInDays(Carbon::now()));
     }
+
+    public function walks()
+    {
+        return $this->hasMany(PetWalk::class);
+    }
 }

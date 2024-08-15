@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PetWalk extends Model
 {
     use HasFactory;
+
+    public function pet()
+    {
+        return $this->belongsTo(Pet::class);
+    }
 }
