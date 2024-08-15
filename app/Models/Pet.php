@@ -17,6 +17,12 @@ class Pet extends Model
         return round($birth_date->diffInDays(Carbon::now()));
     }
 
+    public function getMonthsSinceBirthAttribute()
+    {
+        $birth_date =  Carbon::parse($this->attributes['birth_date']);
+        return round($birth_date->diffInMonths(Carbon::now()));
+    }
+
     public function walks()
     {
         return $this->hasMany(PetWalk::class);

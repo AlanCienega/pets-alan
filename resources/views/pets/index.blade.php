@@ -39,7 +39,8 @@
       <th>Name</th>
       <th>Description</th>
       <th>Type</th>
-      <th>Numer of days old</th>
+      <th>Age (in days)</th>
+      <th>Age (in months)</th>
       <th>Pet walks</th>
     </tr>
     <tbody>
@@ -48,7 +49,8 @@
         <td>{{ $pet->name }}</td>
         <td>{{ $pet->description }}</td>
         <td>{{ $pet->type }}</td>
-        <td>{{ $pet->days_since_birth }}</td>
+        <td style="text-align: center;">{{ $pet->days_since_birth }} </td>
+        <td style="text-align: center;">{{ $pet->months_since_birth }} </td>
         <td colspan="{{count($pet->walks)}}">
           @foreach ($pet->walks as $walks)
           {{ $walks->location }}
