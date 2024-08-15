@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Pet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class PetWalkFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'location' => fake()->streetSuffix(),
+            'walk_date' => fake()->date(),
+            'pet_id' => Pet::inRandomOrder()->first()->id
         ];
     }
 }

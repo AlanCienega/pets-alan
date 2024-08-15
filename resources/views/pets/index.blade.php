@@ -9,6 +9,11 @@
     td {
       border: 1px solid black;
     }
+
+    tr>th {
+      background-color: gray;
+      color: white
+    }
   </style>
 </head>
 

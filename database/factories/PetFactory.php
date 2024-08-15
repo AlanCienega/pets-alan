@@ -21,7 +21,7 @@ class PetFactory extends Factory
             'type' => fake()->randomElement(['cat', 'dog', 'turtle']),
             'description' => fake()->word(),
             // birthdat before today
-            'birth_date' => fake()->date('Y-m-d', strtotime('-1 year')),
+            'birth_date' => fake()->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }
